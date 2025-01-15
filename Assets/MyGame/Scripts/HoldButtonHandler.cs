@@ -6,9 +6,14 @@ public class HoldButtonHandler : MonoBehaviour, IPointerDownHandler, IPointerUpH
     private bool isPressed = false;
     private MixObjectColor objColor;
     private ColorRGB myColor;
+    private Animator animator;
+    [SerializeField] private GameObject animatedObjectRed, animatedObjectGreen, animatedObjectBlue;
 
     private void Start()
     {
+        animator = animatedObjectRed.GetComponent<Animator>();
+        animator.Play("pulseWindradRed");
+
         objColor = GameObject.FindObjectOfType<MixObjectColor>();
         if (gameObject.name.Contains("Rot"))
         {
@@ -26,6 +31,8 @@ public class HoldButtonHandler : MonoBehaviour, IPointerDownHandler, IPointerUpH
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        animator.gameObject.SetActive(false);
+
         isPressed = true;
         switch (myColor)
         {
@@ -54,4 +61,6 @@ public class HoldButtonHandler : MonoBehaviour, IPointerDownHandler, IPointerUpH
             objColor.DecreaseFillState(myColor);
         }   
     }
+
+    //Später nach pulsieren erst das zweite drückbar
 }
