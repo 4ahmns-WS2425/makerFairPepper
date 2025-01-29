@@ -6,7 +6,7 @@ public enum TaskToDo
     Bautechnik = 1,
     Maschinenbau = 2,
     Elektrotechnik = 3,
-    Abendschule = 4,
+    Biomedizin = 4,
     ElektronikTechInfo = 5,
     None = 6,
     Informationstechnologie = 7
